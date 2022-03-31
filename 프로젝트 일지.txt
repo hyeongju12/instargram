@@ -1,0 +1,12 @@
+장고 일지
+
+2022/03/31
+1. 프로젝트 환경 설정
+python 3.8 / django~=3.0.0
+2. 프로젝트 생성
+django-admin startproject askcompany
+3. 프로젝트 settings 설정
+static, media, templates 경로 설정
+4. media, templates 파일 생성
+- jquery.com
+- layout.html
