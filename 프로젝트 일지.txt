@@ -3,10 +3,35 @@
 2022/03/31
 1. 프로젝트 환경 설정
 python 3.8 / django~=3.0.0
+
 2. 프로젝트 생성
-django-admin startproject askcompany
-3. 프로젝트 settings 설정
-static, media, templates 경로 설정
-4. media, templates 파일 생성
-- jquery.com
+askcompany
+
+3. 프로젝트 settings.py 설정
+프로젝트/static
+프로젝트/media
+templates 경로 설정
+
+3-1. urls.py static 설정
+urlpatterns += static(settings.MEDIA_URL, document_root=MEDIA_ROOT)
+
+4. media, templates 파일 복사
+- jquery.js
 - layout.html
+
+5. 개발을 위한 장고 설정/라이브러리 설치
+- django-debug-toolbar 설치
+- settings.py를 개발/배포 별로 구분하기 위해 settings 폴더에 
+  * common.py, dev.py, prod.py / git mv 명령어를 이용해 복사
+  
+6. jquery, boostrap(css, js) 파일 셋팅
+- getbootstrap --> bootstrap 4. 6 버전 사용
+- jquery --> 3. 6
+
+7. project/templates/layout.html, root.html 꾸미기
+- getbootstrap example > pricing에서 헤더 푸터 따옴
+- Instargram 홈페이지에서 로고, 헤더 부분 쪽 아이콘 따옴
+
+8. accounts 앱 추가
+- User 모델 생성(AbstrackUser 상속)
+- 인스타그램에서 회원가입 및 프로필 수정 정보에 어떤 필드가 있는지 확인
