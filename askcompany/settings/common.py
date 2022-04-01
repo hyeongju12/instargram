@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #third_pary_app
     "debug_toolbar",
+    "bootstrap4",
     #local_app
     'accounts',
 ]
