@@ -12,7 +12,7 @@ class SignupForm(UserCreationForm):
 
 	class Meta(UserCreationForm.Meta):
 		model = User
-		fields = ['username', 'email', 'first_name', 'last_name']
+		fields = ['username', 'email', 'first_name', 'last_name', 'phone_number', 'gender']
 
 	def clean_email(self):
 		email = self.cleaned_data.get('email')
@@ -21,3 +21,8 @@ class SignupForm(UserCreationForm):
 			if qs.exists():
 				raise forms.ValidationError("이미 등록된 이메일 입니다.")
 		return email
+
+class ProfileForm(forms.ModelForm):
+	class Meta:
+		model=User
+		fields=['avatar', 'last_name', 'first_name', 'gender', 'phone_number', 'website_url', 'bio']

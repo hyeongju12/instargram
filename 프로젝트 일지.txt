@@ -35,3 +35,23 @@ urlpatterns += static(settings.MEDIA_URL, document_root=MEDIA_ROOT)
 8. accounts 앱 추가
 - User 모델 생성(AbstrackUser 상속)
 - 인스타그램에서 회원가입 및 프로필 수정 정보에 어떤 필드가 있는지 확인
+
+2022/04/01
+회원가입 이메일 보내기
+프로필 수정/추가
+로그인/로그아웃 기능 추가
+send_mail api 활용(smtp)
+django-sendgrid-v5 활용 전용 web api 활용
+
+- sendgrid key
+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
+set SENDGRID_API_KEY "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"
+https://www.inflearn.com/questions/443402
+
+Tip. 현재 User 모델 가져오기(shell)
+from django.contrib.auth import get_user_model
+
+USer = get_user_model()
+
+django-pyidenticon을 이용한 프로필 사진 
+django-imagekit
