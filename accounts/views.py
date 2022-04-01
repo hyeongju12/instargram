@@ -1,14 +1,25 @@
+from django.contrib.auth.views import LoginView, LogoutView, logout_then_login
+from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
 from .forms import SignupForm
 from django.contrib import messages as msgs
+from django.core.mail import send_mail
 
 # Create your views here.
+login = LoginView.as_view(template_name="accounts/login_form.html")
+
+def logout(request):
+	msgs.success(request, 'Logout Completed!')
+	return logout_then_login(request)
+
 def signup(request):
 	if request.method == 'POST':
 		form = SignupForm(request.POST)
 		if form.is_valid():
-			user = form.save()
+			signed_user = form.save()
+			auth_login(request, signed_user)
 			msgs.success(request, "Sign up Completed!")
+			signed_user.send_welcome_email() # FIXME : Celery로 처리하는것으로 추천
 			next_url= request.GET.get('next', '/') # pattern name 사용가능
 			return redirect(next_url)
 	else:
