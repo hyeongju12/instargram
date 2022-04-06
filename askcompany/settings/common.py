@@ -42,12 +42,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+
     #third_pary_app
     "debug_toolbar",
     "bootstrap4",
     'django_pydenticon',
+    'taggit',
+    'easy_thumbnails',
+
     #local_app
     'accounts',
+    'instargram',
 ]
 
 MIDDLEWARE = [
@@ -157,3 +163,9 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 WELCOME_EMAIL_SENDER = "hyeongju123@naver.com"
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (50, 50), 'crop': True},
+    },
+}
